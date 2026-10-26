@@ -1,0 +1,24 @@
+@use "sass:math";
+
+$base: 16px;
+
+@function rem($px) {
+    @return math.div($px, $base) * 1rem;
+}
+
+// html {
+//     font-size: clamp(14px, 14px + 0.25vw, 16px);
+// }
+
+// @media (max-width: 1600px) {
+//     html { font-size: 14px; }
+// }
+
+
+@function vw($px, $design: 1920) {
+    @return math.div($px, $design) * 100vw;
+}
+
+@function cq($px, $container: 1900) {
+    @return math.div($px, $container) * 100cqw;
+}

@@ -1,0 +1,54 @@
+@use "sass:math";
+
+$headers: (
+    1: 3rem,
+    2: 2.75rem,
+    3: 2.25rem,
+    4: 2rem,
+    5: 1.75rem,
+    6: 1.5rem,
+    7: 1.25rem
+);
+
+@function round-rem($number) {
+    @return math.div(math.round($number * 100), 100);
+}
+
+:root {
+    // Десктоп (базовые значения)
+    @each $num, $val in $headers {
+        --header-#{$num}: #{$val};
+    }
+
+    @media screen and (max-width: 1500px) {
+        @each $num, $val in $headers {
+            --header-#{$num}: #{round-rem($val * 0.9)};
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        @each $num, $val in $headers {
+            --header-#{$num}: #{round-rem($val * 0.8)};
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        @each $num, $val in $headers {
+            --header-#{$num}: #{round-rem($val * 0.7)};
+        }
+    }
+
+
+    --bg: #fbf9f1;
+    --line: #f1e9dc;
+    --accent: #081a33;
+    --gray: #6c757d;
+    --white: #ffffff;
+
+    --red: #dc3545;
+    --green: #28a745;
+
+    --light: #cdbca8;
+
+    --mono:  "IBM Plex Mono", monospace;
+}

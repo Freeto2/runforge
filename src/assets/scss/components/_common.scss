@@ -1,0 +1,306 @@
+@use "sass:map";
+
+$mb-values: (
+    auto: auto,
+    4: 4px,
+    6: 6px,
+    8: 8px,
+    10: 10px,
+    12: 12px,
+    15: 15px,
+    16: 16px,
+    20: 20px,
+    24: 24px,
+    28: 28px,
+    30: 30px,
+    32: 32px,
+    36: 36px,
+    40: 40px,
+    45: 45px,
+    50: 50px,
+    56: 56px,
+    60: 60px,
+    65: 65px,
+    70: 70px,
+    75: 75px,
+    80: 80px,
+    100: 100px,
+    110: 110px,
+    120: 120px,
+    135: 135px,
+    160: 160px,
+);
+
+$mb-responsive: (
+    20: (
+        1500: 16px,
+        1200: 14px,
+        768: 10px,
+    ),
+    24: (
+        1500: 20px,
+        1200: 16px,
+        768: 12px,
+    ),
+    28: (
+        1500: 22px,
+        1200: 18px,
+        768: 14px,
+    ),
+    30: (
+        1500: 24px,
+        1200: 20px,
+        768: 16px,
+    ),
+    32: (
+        1500: 26px,
+        1200: 22px,
+        768: 16px,
+    ),
+    36: (
+        1500: 28px,
+        1200: 24px,
+        768: 18px,
+    ),
+    40: (
+        1500: 32px,
+        1200: 26px,
+        768: 20px,
+    ),
+    45: (
+        1500: 36px,
+        1200: 28px,
+        768: 22px,
+    ),
+    50: (
+        1500: 40px,
+        1200: 32px,
+        768: 24px,
+    ),
+    56: (
+        1500: 44px,
+        1200: 36px,
+        768: 26px,
+    ),
+    60: (
+        1500: 48px,
+        1200: 38px,
+        768: 28px,
+    ),
+    65: (
+        1500: 52px,
+        1200: 42px,
+        768: 30px,
+    ),
+    70: (
+        1500: 56px,
+        1200: 44px,
+        768: 32px,
+    ),
+    75: (
+        1500: 60px,
+        1200: 48px,
+        768: 34px,
+    ),
+    80: (
+        1500: 64px,
+        1200: 50px,
+        768: 36px,
+    ),
+    100: (
+        1500: 80px,
+        1200: 60px,
+        768: 40px,
+    ),
+    110: (
+        1500: 86px,
+        1200: 66px,
+        768: 46px,
+    ),
+    120: (
+        1500: 94px,
+        1200: 72px,
+        768: 50px,
+    ),
+    135: (
+        1500: 106px,
+        1200: 80px,
+        768: 56px,
+    ),
+    160: (
+        1500: 126px,
+        1200: 96px,
+        768: 64px,
+    ),
+);
+
+.margin-bottom {
+    @each $key, $value in $mb-values {
+        &-#{$key} {
+            margin-bottom: $value;
+
+            // если есть адаптив
+            @if map-has-key($mb-responsive, $key) {
+                $breakpoints: map.get($mb-responsive, $key);
+
+                @each $bp, $bp-value in $breakpoints {
+                    @media screen and (max-width: #{$bp}px) {
+                        margin-bottom: $bp-value;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// убираем отступ у последнего элемента
+[class*="margin-bottom-"] {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+[class*="margin-bottom-"] {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.margin-top-auto {
+    margin-top: auto;
+}
+
+.tabs-wrapper {
+    position: relative;
+    &__head {
+        display: flex;
+        flex-flow: wrap;
+        gap: 12px;
+        @media screen and (max-width: 575px) {
+            gap: 4px;
+        }
+    }
+    &__body {
+        position: relative;
+    }
+    .tabs-content {
+        position: relative;
+    }
+    .tab-item {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        &.active {
+            position: relative;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+
+.full-height {
+    height: 100%;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    padding: 10px 14px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 8px;
+    display: inline-block;
+    @media screen and (max-width: 991px) {
+        margin-bottom: 0;
+        padding: 8px 12px;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+}
+
+
+.breadcrumbs-section {
+    border-bottom: 1px solid var(--line);
+    padding: 20px 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray);
+    @media screen and (max-width: 991px) {
+    }
+}
+
+.app-wrapper {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    @media screen and (max-width: 991px) {
+        flex-flow: wrap;
+    }
+    &__sidebar {
+        width: 250px;
+        min-width: 250px;
+        height: 100%;
+        border-right: 1px solid var(--line);
+        padding: 20px;
+        @media screen and (max-width: 991px) {
+            display: none;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+        overflow: auto;
+        padding: 20px 0;
+    }
+}
+
+
+.sidebar-nav {
+    @media screen and (max-width: 991px) {
+        display: none;
+    }
+    &__link {
+        width: 100%;
+        display: block;
+        text-align: left;
+        color: var(--accent);
+        font-weight: 500;
+        padding: 7px 14px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+        border: 1px solid rgba(#fff, 0);
+        transition: .4s;
+        &.active {
+            background: var(--white);
+            border-color: var(--line);
+        }
+
+        &:hover {
+            background: var(--white);
+            border-color: var(--line);
+        }
+    }
+}
+
+.hidden-desc {
+    @media screen and (min-width: 992px) {
+        display: none;
+    }
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

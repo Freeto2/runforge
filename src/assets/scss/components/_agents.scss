@@ -1,0 +1,223 @@
+.agents-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+
+.agent-item {
+  transition: .5s ease;
+  cursor: pointer;
+  width: calc(100% / 4 - 16px * 3 / 4);
+  position: relative;
+  @media screen and (max-width: 1300px) {
+    width: calc(100% / 3 - 16px * 2 / 3);
+  }
+  @media screen and (max-width: 1100px) {
+    width: calc(100% / 2 - 16px * 1 / 2);
+  }
+  @media screen and (max-width: 575px) {
+    width: 100%;
+  }
+  &:hover {
+    box-shadow: 0 20px 20px -6px rgba(#000, 0.1);
+  }
+  &__status {
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-size: 12px;
+    color: var(--gray);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    @media screen and (max-width: 575px) {
+      font-size: 10px;
+    }
+    &::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: .2;
+      animation: pulse 1.2s infinite linear;
+      will-change: transform;
+    }
+
+    &::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      position: absolute;
+      left: 3px;
+
+    }
+
+    &.needs_review {
+      &::before, &::after {
+        background: var(--accent);
+      }
+    }
+    &.failed {
+      &::before, &::after {
+        background: var(--red);
+      }
+    }
+    &.paused, &.queued {
+      &::before, &::after {
+        background: var(--gray);
+      }
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 20px;
+    @media screen and (max-width: 575px) {
+      font-size: 16px;
+    }
+  }
+
+
+  &__info {
+    display: flex;
+    flex-flow: wrap;
+    gap: 6px;
+    span {
+      font-size: 10px;
+      padding: 4px 8px;
+      border: 1px solid rgba(#BEB89EFF, 0.5);
+      background: rgba(#fbf9f1, 0.5);
+      border-radius: 5px;
+      font-weight: 600;
+      color: #BEB89EFF;
+    }
+  }
+
+  .btns-row {
+    margin-top: auto;
+  }
+
+  //.btn {
+  //  &::before {
+  //    content: '';
+  //    width: 100%;
+  //    height: 100%;
+  //    position: absolute;
+  //    inset: 0;
+  //  }
+  //}
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: .4;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: .4;
+  }
+}
+
+
+.agents-wrapper {
+  &__header {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-flow: wrap;
+    .agents-search {
+      width: calc(100% * 3 / 12 - 12px);
+      @media screen and (max-width: 1300px) {
+        flex-grow: 1;
+      }
+      @media screen and (max-width: 575px) {
+        width: 100%;
+      }
+    }
+
+    .agents-filters {
+      padding: 2px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-left: auto;
+      display: inline-flex;
+      @media screen and (max-width: 1300px) {
+        width: 100%;
+
+      }
+      .btn {
+        background: none;
+        border-color: rgba(#fff, 0);
+        text-transform: capitalize;
+        @media screen and (max-width: 575px) {
+          font-size: 12px;
+          padding: 12px 8px;
+          flex-grow: 1;
+        }
+        &.active {
+          background: var(--white);
+          border-color: var(--line);
+        }
+      }
+    }
+
+    @media screen and (max-width: 575px) {
+      gap: 8px;
+      .custom-select {
+        width: 100%;
+        select {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+
+.agent-details {
+  display: flex;
+  gap: 8px;
+  flex-flow: wrap;
+  &__item {
+    width: calc(50% - 4px);
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 11px;
+    color: var(--gray);
+    .agent-item__status {
+      font-size: 10px;
+    }
+  }
+}
+
+.terminal-logs {
+  font-size: 10px;
+  color: var(--gray);
+  line-height: 1;
+  font-family: var(--mono);
+  p {
+    margin-bottom: 6px;
+  }
+  strong {
+    font-weight: bold;
+  }
+  .red {
+    color: var(--red);
+  }
+}

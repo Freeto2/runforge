@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Codex",
+    "rep": "api-migration",
+    "status": "queued",
+    "time": "queued 18 min ago",
+    "date": "25.10.2026"
+  },
+  {
+    "id": 2,
+    "name": "Claude Code",
+    "rep": "lint-fixes",
+    "status": "failed",
+    "time": "failed 51 min ago",
+    "date": "25.10.2026"
+  },
+  {
+    "id": 3,
+    "name": "Claude Code",
+    "rep": "test-suite",
+    "status": "running",
+    "time": "running 1h 37m",
+    "date": "25.10.2026"
+  },
+  {
+    "id": 4,
+    "name": "Claude Code",
+    "rep": "checkout-refactor",
+    "status": "running",
+    "time": "running 2h 15m",
+    "date": "25.10.2026"
+  },
+  {
+    "id": 5,
+    "name": "OpenCode",
+    "rep": "pr-review-1842",
+    "status": "queued",
+    "time": "waiting 4 min",
+    "date": "25.10.2026"
+  },
+  {
+    "id": 6,
+    "name": "Codex",
+    "rep": "nightly-qa",
+    "status": "succeeded",
+    "time": "succeeded 2 hr ago",
+    "date": "25.10.2026"
+  },
+  {
+    "id": 7,
+    "name": "Claude Code",
+    "rep": "test-suite",
+    "status": "failed",
+    "time": "failed 3 hr ago",
+    "date": "25.10.2026"
+  }
+]

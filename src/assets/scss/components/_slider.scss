@@ -1,0 +1,118 @@
+.slider-6 {
+    .swiper-slide {
+        margin-right: var(--gap);
+        width: calc(100% / 5 - var(--gap) * 5 / 6);
+    }
+}
+.slider-5 {
+    .swiper-slide {
+        margin-right: var(--gap);
+        width: calc(100% / 5 - var(--gap) * 4 / 5);
+        @media screen and (max-width: 1200px) {
+            width: calc(100% / 4 - var(--gap) * 3 / 4);
+        }
+        @media screen and (max-width: 991px) {
+            width: calc(100% / 3 - var(--gap) * 2 / 3);
+        }
+        @media screen and (max-width: 768px) {
+            width: calc(100% / 2 - var(--gap) * 1 / 2);
+        }
+        @media screen and (max-width: 575px) {
+            width: 100%;
+        }
+    }
+}
+.slider-4 {
+    .swiper-slide {
+        margin-right: var(--gap);
+        width: calc(100% / 4 - var(--gap) * 3 / 4);
+        @media screen and (max-width: 1200px) {
+            width: calc(100% / 3 - var(--gap) * 2 / 3);
+        }
+        @media screen and (max-width: 991px) {
+            width: calc(100% / 2 - var(--gap) * 1 / 2);
+        }
+        @media screen and (max-width: 575px) {
+            width: 100%;
+        }
+    }
+}
+.slider-3 {
+    .swiper-slide {
+        margin-right: var(--gap);
+        width: calc(100% / 3 - var(--gap) * 2 / 3);
+        @media screen and (max-width: 1200px) {
+            width: calc(100% / 2 - var(--gap) * 1 / 2);
+        }
+        @media screen and (max-width: 991px) {
+            width: 100%;
+        }
+    }
+}
+.slider-2 {
+    .swiper-slide {
+        margin-right: var(--gap);
+        width: calc(100% / 2 - var(--gap) * 1 / 2);
+    }
+}
+.slider-1 {
+    .swiper-slide {
+        width: 100%;
+    }
+}
+
+.slider-wrapper {
+    position: relative;
+    .swiper-slide {
+        padding: 1px;
+        @media screen and (max-width: 991px) {
+            padding: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.slider-arrows-middle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    .btn-arrow {
+        position: absolute;
+        left: -28px;
+        z-index: 2;
+        &.btn-next {
+            left: auto;
+            right: -28px;
+        }
+
+        @media screen and (max-width: 575px) {
+            left: -10px;
+
+            &.btn-next {
+                left: auto;
+                right: -10px;
+            }
+        }
+    }
+}
+
+
+.slider-wrapper {
+    &__inner {
+        width: 100%;
+    }
+}
+
+.slider-box {
+    .slider-wrapper__inner {
+        overflow: hidden;
+    }
+}
+
+.slider-height {
+    .swiper-slide {
+        height: initial;
+    }
+}
